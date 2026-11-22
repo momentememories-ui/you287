@@ -234,8 +234,8 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr);
             gap: 2px;
-            width: 270px;
-            height: 480px;
+            width: 288px;
+            height: 162px;
             margin: 0 auto 10px auto;
             background: rgba(255, 182, 193, 0.4);
             padding: 4px;
@@ -244,10 +244,10 @@
         }
 
         .puzzle-piece {
-            width: 88px;
-            height: 158px;
+            width: 94px;
+            height: 52px;
             background-image: url('photo1.jpg');
-            background-size: 264px 474px;
+            background-size: 282px 156px;
             cursor: grab;
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
@@ -278,8 +278,8 @@
         }
 
         .completed-preview {
-            width: 270px;
-            height: 480px;
+            width: 288px;
+            height: 162px;
             background-image: url('photo1.jpg');
             background-size: cover;
             background-position: center;
@@ -336,11 +336,14 @@
             background: linear-gradient(135deg, #ffffff, #fff0f5);
             width: 90%;
             max-width: 360px;
+            max-height: 82vh;
             padding: 25px 20px;
             border-radius: 25px;
             box-shadow: 0 15px 35px rgba(216, 27, 96, 0.3);
             text-align: center;
             border: 4px solid #ff69b4;
+            display: flex;
+            flex-direction: column;
             transform: scale(0.8);
             animation: popUpWish 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
@@ -353,6 +356,7 @@
             color: #d81b60;
             font-size: 1.2rem;
             margin-bottom: 10px;
+            flex-shrink: 0;
         }
 
         .wish-box-center p {
@@ -361,6 +365,11 @@
             line-height: 1.6;
             white-space: pre-wrap;
             min-height: 80px;
+            max-height: 55vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            padding-right: 4px;
         }
 
         .close-wish-btn {
@@ -373,6 +382,7 @@
             font-size: 0.9rem;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(216, 27, 96, 0.4);
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -563,8 +573,8 @@
                 piece.classList.add('puzzle-piece');
                 piece.setAttribute('draggable', 'true');
                 
-                const x = (pieceIndex % 3) * 88;
-                const y = Math.floor(pieceIndex / 3) * 158;
+                const x = (pieceIndex % 3) * 94;
+                const y = Math.floor(pieceIndex / 3) * 52;
                 piece.style.backgroundPosition = `-${x}px -${y}px`;
                 piece.dataset.index = currentIndex;
 
@@ -744,7 +754,43 @@
             }, 1500);
         }
 
-        const wishMessage = "สุขสันต์วันลอยกระทงนะคะ\n\nขอให้กระทงนี้และแสงพลุนี้\nนำพาความสุข ความรัก และเรื่องราวดีๆ\nมาให้เราได้จับมือ\nอยู่เคียงข้างกันแบบนี้ตลอดไป\n\nรักเธอที่สุดเลยนะ ❤️";
+        const wishMessage = `เปอร์ขอให้เองมีความสุขในทุกๆวัน
+มีแต่รอยยิ้มที่สดใสในทุกๆวัน
+ขอให้เองอยุ่กับเปอร์ไปนานๆ
+ขอให้เราอยู่ด้วยกันไปนานๆ
+ไม่ว่าจะอะไรอุปสรรคใดๆ
+ขออย่าทำแยกเราจากกันนะ 
+ขอให้เราอยู่ข้างๆกันไปตลอด
+แม้ในวันที่เหนื่อย
+ขอให้เราเป็นเซฟโซนให้กันและกันไปตลอดนะ 
+เปอร์จะอยู่ข้างๆเองในทุกๆวัน
+ขอให้เองอยุ่กับเปอร์ไปนานๆ
+อย่าทิ้งเปอร์ไปไหนเองจะไม่โดดเดี่ยว
+เองจะมีเปอร์อยุ่ตรงนี้เปอร์รักเองนะ
+เองคือคนสำคัญในชีวิตเปอร์นะ
+ถ้าเองมีไรไม่สบายใจอะไร
+หรือมีเรื่องเครียดอะไร
+เปอร์อยากให้เองคิดถึงเปอร์เป็นคนแรกนะ
+เปอร์พร้อมรับฟังเองเปอร์อยากให้เอง
+ไม่คิดว่าเปอร์เป้นแค่เเฟน
+แต่อยากให้คิดว่าเปอร์คือคนที่ไว้ใจได้
+อยู่ด้วยแล้วสบายใจที่สุด
+สามารถพูดหรือระบายให้กัน
+ฟังปรึษากันได้ทุกเรื่อง
+เพราะเราเลือกกันและกันแล้ว
+เราจะอยู่ด้วยกันไปเรื่อยๆ
+และเปอร์อยากมีตลอดไปเลย
+
+เปอร์รักชมพู่มากๆนะคะ
+ถึงจะไม่ใช่รักแรก เเต่พู่คือคน
+ที่ทำให้เปอร์รู้สึกอยากเป้นคนดีขึ้นเพื่อพู่
+ถึงอายุเปอร์จะแค่17
+แต่เปอร์จะคอยดูแลและปกป้อง
+ในทุกๆปัญหาที่เข้ามานะ
+
+เปอร์อยากอยู่กับพู่
+ดูแลกันไปตลอดจนแก่เลย
+เปอร์รักพู่นะคะ😊`;
         let isTypingStarted = false;
 
         couplePhoto.addEventListener('click', () => {
@@ -759,6 +805,7 @@
         function typeWriter(text, i) {
             if (i < text.length) {
                 typedText.innerHTML += text.charAt(i);
+                typedText.scrollTop = typedText.scrollHeight;
                 setTimeout(() => typeWriter(text, i + 1), 60);
             }
         }
